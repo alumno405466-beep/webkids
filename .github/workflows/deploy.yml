@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Se ejecuta cuando hay un push a la rama 'main'
+  push:
+    branches: ['main']
+  # Te permite ejecutar este flujo de trabajo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Establece los permisos necesarios para el despliegue
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un despliegue a la vez, cancelando los que estén en progreso
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Trabajo único de despliegue
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # O la versión que uses en tu proyecto
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Especifica la carpeta que contiene los archivos de tu sitio construido
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
