@@ -132,7 +132,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
               ))}
             </div>
             <div className="flex gap-2">
-              {STEPS.map((step, i) => ( //wefhuw
+              {STEPS.map((step, i) => (
                 <div
                   key={step}
                   className={`h-3 flex-1 rounded-full transition-all duration-500 ${progress[i] ? 'bg-brand' : 'bg-slate-100'
