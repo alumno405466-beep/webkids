@@ -46,7 +46,7 @@ export function HeroVideo({
         transition={{ duration: 0.6 }}
       >
         <motion.h1
-          className="mb-4 text-4xl font-black leading-tight sm:text-5xl md:text-6xl"
+          className="mb-4 text-4xl font-sketch font-black leading-tight sm:text-5xl md:text-6xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}

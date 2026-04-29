@@ -19,10 +19,11 @@ export default {
         soft: '0 12px 30px -18px rgba(0,0,0,0.35)',
       },
       fontFamily: {
-        display: ['"Sketch Block"', '"Fredoka"', 'system-ui', 'sans-serif'],
+        display: ['"Adobe Caslon Pro"', '"Fredoka"', 'system-ui', 'sans-serif'],
         body: ['Roboto', 'system-ui', 'sans-serif'],
         serif: ['"Adobe Caslon Pro"', 'Georgia', 'serif'],
         monoish: ['"American Typewriter"', 'ui-monospace', 'monospace'],
+        sketch: ['"Sketch Block"', 'ui-monospace', 'monospace']
       },
     },
   },

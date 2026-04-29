@@ -64,7 +64,7 @@ export function Metodo() {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <motion.h1 
-            className="text-4xl font-black tracking-tight text-white sm:text-6xl"
+            className="text-4xl font-sketch font-black tracking-tight text-white sm:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}

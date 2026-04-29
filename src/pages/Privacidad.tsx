@@ -66,7 +66,7 @@ export function Privacidad() {
           </p>
 
           <h2 id="responsable">Responsable del tratamiento</h2>
-          <p>KidsTalent Toledo · <a href="mailto:hola@kidstalent.es" className="text-brand">hola@kidstalent.es</a></p>
+          <p>KidsTalent Toledo · <a href="mailto:hello@kidstalent.es" className="text-brand">hello@kidstalent.es</a></p>
 
           <h2 id="finalidad">Finalidad</h2>
           <p>
@@ -84,13 +84,13 @@ export function Privacidad() {
           <p>
             Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y
             portabilidad de los datos enviando un email a{' '}
-            <a href="mailto:hola@kidstalent.es" className="text-brand">hola@kidstalent.es</a>.
+            <a href="mailto:hello@kidstalent.es" className="text-brand">hello@kidstalent.es</a>.
           </p>
 
           <h2 id="contacto-dpo">Contacto</h2>
           <p>
             Para cualquier consulta sobre el tratamiento de tus datos personales puedes contactarnos en{' '}
-            <a href="mailto:hola@kidstalent.es" className="text-brand">hola@kidstalent.es</a>.
+            <a href="mailto:hello@kidstalent.es" className="text-brand">hello@kidstalent.es</a>.
           </p>
         </div>
       </motion.section>
