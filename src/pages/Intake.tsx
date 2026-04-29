@@ -106,10 +106,10 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
 
   return (
     <Section bgColor="slate" className="min-h-screen py-12">
-      <motion.div
-        className="mx-auto max-w-2xl space-y-8"
-        variants={containerVariants}
-        initial="hidden"
+      <motion.div 
+        className="mx-auto max-w-2xl space-y-8" 
+        variants={containerVariants} 
+        initial="hidden" 
         animate="visible"
       >
         {/* Header & Progress */}
@@ -117,15 +117,16 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
           <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
             {isCampamentos ? 'Reserva tu campamento' : 'Empieza tu aventura'}
           </h1>
-
-
+         
+          
           <div className="mt-8 rounded-3xl bg-white p-6 shadow-sm border border-slate-100">
             <div className="mb-3 flex justify-between px-2">
               {STEPS.map((step, i) => (
                 <span
                   key={step}
-                  className={`text-sm font-bold transition-colors ${progress[i] ? 'text-brand' : 'text-slate-400'
-                    }`}
+                  className={`text-sm font-bold transition-colors ${
+                    progress[i] ? 'text-brand' : 'text-slate-400'
+                  }`}
                 >
                   {step}
                 </span>
@@ -135,8 +136,9 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
               {STEPS.map((step, i) => (
                 <div
                   key={step}
-                  className={`h-3 flex-1 rounded-full transition-all duration-500 ${progress[i] ? 'bg-brand' : 'bg-slate-100'
-                    }`}
+                  className={`h-3 flex-1 rounded-full transition-all duration-500 ${
+                    progress[i] ? 'bg-brand' : 'bg-slate-100'
+                  }`}
                   aria-hidden="true"
                 />
               ))}
@@ -234,7 +236,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
 
           {/* Section 3: Interests & Consent */}
           <motion.section variants={itemVariants} className="rounded-3xl border border-slate-100 bg-white p-8 shadow-lg">
-
+            
 
             <label className="mt-8 flex cursor-pointer items-start gap-4 rounded-2xl bg-brand/5 border border-brand/10 p-5 transition-colors hover:bg-brand/10">
               <input
