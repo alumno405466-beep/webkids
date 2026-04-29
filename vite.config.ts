@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     visualizer({ open: true, filename: 'dist/stats.html' }) // abre el reporte
+    
   ],
-  base: '/webkids/',
+  base: '/'
 })
