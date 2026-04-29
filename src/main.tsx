@@ -8,7 +8,7 @@ import { AppProviders } from './app/providers'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppProviders>
-      <BrowserRouter basename="/webkids">\n        <App />\n      </BrowserRouter>
+      <BrowserRouter basename="/webkids">        <App />      </BrowserRouter>
     </AppProviders>
   </StrictMode>,
 )
