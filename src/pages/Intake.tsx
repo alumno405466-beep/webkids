@@ -17,7 +17,6 @@ const baseSchema = z.object({
   kidName: z.string().min(2, 'Nombre del peque'),
   kidAge: z.number().int().min(0).max(18),
   camp: z.string().optional(),
-  interests: z.array(z.string()).min(1, 'Selecciona al menos 1 interés').max(5),
   consent: z.boolean().refine((v) => v, 'Necesitamos tu consentimiento'),
 })
 
@@ -27,13 +26,10 @@ const campSchema = baseSchema.extend({
 
 type FormValues = z.infer<typeof baseSchema>
 
-const interestOptions = [
-  'Artes escénicas', 'Deporte', 'Música', 'Moda',
-  'Modelaje', 'Cine/TV', 'Influencer', 'Tecnología', 'Idiomas'
-]
+
 
 const AGE_OPTIONS = Array.from({ length: 19 }, (_, i) => i)
-const STEPS = ['Tus datos', 'Datos del peque', 'Intereses']
+const STEPS = ['Tus datos', 'Datos del peque']
 
 type IntakeFormType = 'general' | 'campamentos'
 
@@ -65,7 +61,6 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
       kidName: leadQuery.data?.kidName ?? '',
       kidAge: leadQuery.data?.kidAge ?? 8,
       camp: leadQuery.data?.camp ?? (isCampamentos && urlCamp ? urlCamp.slug : ''),
-      interests: leadQuery.data?.interests ?? [],
       consent: leadQuery.data?.consent ?? false,
     }),
     [leadQuery.data, isCampamentos, urlCamp],
@@ -73,7 +68,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
 
   const form = useForm<FormValues>({
     resolver: zodResolver(isCampamentos ? campSchema : baseSchema),
-    defaultValues: { guardianName: '', email: '', phone: '', kidName: '', kidAge: 8, camp: '', interests: [], consent: false },
+    defaultValues: { guardianName: '', email: '', phone: '', kidName: '', kidAge: 8, camp: '', consent: false },
     mode: 'onChange',
   })
 
@@ -90,7 +85,6 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
     },
   })
 
-  const interests = form.watch('interests')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,9 +100,9 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
   const progress = useMemo(() => {
     const s1 = form.watch('guardianName') && form.watch('email') && form.watch('phone')
     const s2 = form.watch('kidName') && form.watch('kidAge') !== undefined && (!isCampamentos || form.watch('camp'))
-    const s3 = interests.length > 0 && form.watch('consent')
+    const s3 = form.watch('consent')
     return [!!s1, !!s2, !!s3]
-  }, [form, interests, isCampamentos])
+  }, [form, isCampamentos])
 
   return (
     <Section bgColor="slate" className="min-h-screen py-12">
@@ -123,11 +117,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
           <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
             {isCampamentos ? 'Reserva tu campamento' : 'Empieza tu aventura'}
           </h1>
-          <p className="mt-4 text-lg text-slate-600">
-            {isCampamentos
-              ? 'Rellena este formulario para solicitar tu plaza de forma rápida y segura.'
-              : 'Cuéntanos sobre los intereses de tu hijo para que podamos orientarte mejor.'}
-          </p>
+         
           
           <div className="mt-8 rounded-3xl bg-white p-6 shadow-sm border border-slate-100">
             <div className="mb-3 flex justify-between px-2">
@@ -246,43 +236,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
 
           {/* Section 3: Interests & Consent */}
           <motion.section variants={itemVariants} className="rounded-3xl border border-slate-100 bg-white p-8 shadow-lg">
-            <h2 className="mb-2 text-2xl font-black text-slate-900">3. Intereses principales</h2>
-            <p className="mb-6 text-slate-500">¿Qué es lo que más le gusta hacer? (Máx. 5)</p>
-
-            <div role="group" aria-labelledby="interests-heading">
-              {form.formState.errors.interests?.message && (
-                <p role="alert" className="mb-4 rounded-xl bg-rose-50 p-3 text-sm font-bold text-rose-600">
-                  {String(form.formState.errors.interests.message)}
-                </p>
-              )}
-              <div className="flex flex-wrap gap-3">
-                {interestOptions.map((opt) => {
-                  const selected = interests.includes(opt)
-                  const disabled = !selected && interests.length >= 5
-                  return (
-                    <button
-                      type="button"
-                      key={opt}
-                      disabled={disabled}
-                      onClick={() => {
-                        const next = selected
-                          ? interests.filter((x) => x !== opt)
-                          : [...interests, opt]
-                        form.setValue('interests', next, { shouldValidate: true })
-                      }}
-                      className={`flex min-h-[48px] items-center gap-2 rounded-full px-6 py-2 text-sm font-bold transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
-                        selected
-                          ? 'bg-brand text-white shadow-md'
-                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                      }`}
-                    >
-                      {selected && <span>✓</span>}
-                      {opt}
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
+            
 
             <label className="mt-8 flex cursor-pointer items-start gap-4 rounded-2xl bg-brand/5 border border-brand/10 p-5 transition-colors hover:bg-brand/10">
               <input
