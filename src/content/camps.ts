@@ -4,7 +4,6 @@ export type Camp = {
   subtitle: string
   description: string
   ageRange: string
-  interests: string[]
   activities: string[]
   location: string
   dates: string
@@ -21,7 +20,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Tecnología, creatividad y pensamiento lógico con LEGO Education.',
     description: 'Un campamento donde los niños construyen, programan y prueban robots con piezas LEGO. La experiencia combina el juego con desafíos guiados para desarrollar lógica, creatividad y colaboración.',
     ageRange: '6-12 años',
-    interests: ['Robótica', 'LEGO', 'Ingeniería', 'Pensamiento lógico'],
     activities: ['Construcción de robots', 'Programación básica', 'Desafíos por equipos', 'Presentación de proyectos'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: '30 de junio - 8 de agosto',
@@ -36,7 +34,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Aprendizaje del idioma con juegos, canciones y proyectos reales.',
     description: 'Clases dinámicas de inglés donde el idioma se usa para crear, jugar y experimentar. Ideal para ganar fluidez de forma natural y divertida.',
     ageRange: '4-10 años',
-    interests: ['Inglés', 'Comunicación', 'Cultura', 'Juego'],
     activities: ['Teatro en inglés', 'Cuentos y canciones', 'Juegos de rol', 'Mini-proyectos'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: '30 de junio - 8 de agosto',
@@ -51,7 +48,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Expresión artística con pintura, manualidades y diseño creativo.',
     description: 'Un espacio para explorar distintas técnicas artísticas y potenciar la creatividad. Ideal para niños que quieren expresarse y experimentar con materiales diversos.',
     ageRange: '5-12 años',
-    interests: ['Arte', 'Manualidades', 'Ilustración', 'Expresión'],
     activities: ['Talleres de pintura', 'Diseño de objetos', 'Creación colaborativa', 'Exposición final'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: '30 de junio - 8 de agosto',
@@ -66,7 +62,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Juegos deportivos, circuitos y actividades al aire libre.',
     description: 'Campamento activo donde el movimiento, la cooperación y la diversión son la base. Ideal para niños que disfrutan del deporte y el aire libre.',
     ageRange: '6-14 años',
-    interests: ['Deporte', 'Aventura', 'Trabajo en equipo', 'Salud'],
     activities: ['Circuitos deportivos', 'Juegos cooperativos', 'Circuitos de aventura', 'Dinámicas de grupo'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: '30 de junio - 8 de agosto',
@@ -81,7 +76,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Descubrimiento científico con experimentos y proyectos prácticos.',
     description: 'Un campamento para explorar la ciencia a través de la experimentación segura y divertida. Perfecto para resolver dudas y crear curiosidad científica.',
     ageRange: '7-12 años',
-    interests: ['Ciencia', 'Experimentos', 'Curiosidad', 'Descubrimiento'],
     activities: ['Laboratorio práctico', 'Experimentos en equipo', 'Resolución de problemas', 'Explicación de resultados'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: '30 de junio - 8 de agosto',
@@ -96,7 +90,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Actividades especiales de invierno con mucha diversión.',
     description: 'Talleres y juegos temáticos durante la Semana Blanca. Una forma segura y entretenida de aprovechar las vacaciones escolares.',
     ageRange: '4-12 años',
-    interests: ['Diversión', 'Juegos', 'Creatividad', 'Convivencia'],
     activities: ['Talleres artísticos', 'Juegos por estaciones', 'Pequeñas actividades deportivas', 'Dinámicas de grupo'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: 'Fechas según calendario escolar',
@@ -111,7 +104,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Talleres temáticos y actividades especiales durante vacaciones.',
     description: 'Programación especial para Semana Santa con actividades creativas y educativas. Ideal para aprovechar el descanso escolar de forma activa.',
     ageRange: '4-12 años',
-    interests: ['Talleres', 'Creatividad', 'Motricidad', 'Juego'],
     activities: ['Manualidades temáticas', 'Juegos educativos', 'Pequeños retos', 'Cuentacuentos participativos'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: 'Fechas según calendario escolar',
@@ -126,7 +118,6 @@ export const CAMPS: Camp[] = [
     subtitle: 'Actividades recreativas para los días sin cole.',
     description: 'Jornadas de diversión y aprendizaje en festivos escolares. Una opción práctica para las familias que necesitan apoyo en días no lectivos.',
     ageRange: '4-12 años',
-    interests: ['Festivos', 'Recreación', 'Aprendizaje', 'Socialización'],
     activities: ['Juegos libres', 'Talleres creativos', 'Actividades cooperativas', 'Dinámicas lúdicas'],
     location: 'Av. de Irlanda, 24, Toledo',
     dates: 'Fechas según calendario escolar',

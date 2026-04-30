@@ -53,7 +53,7 @@ export function SiteHeader() {
             aria-label="KidsTalent — Ir a inicio"
             onClick={() => setOpen(false)}
           >
-            <img src={logo} alt="KidsTalent" className="h-9 w-auto" />
+            <img src={logo} alt="KidsTalent Logo" className="h-9 w-auto" />
           </NavLink>
 
           {/* NAV ESCRITORIO */}

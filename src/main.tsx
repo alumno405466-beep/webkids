@@ -9,8 +9,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppProviders>
       <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
+
+      </BrowserRouter>    
     </AppProviders>
-  </StrictMode>,
+  </StrictMode>
 )
