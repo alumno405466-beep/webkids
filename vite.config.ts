@@ -8,5 +8,5 @@ export default defineConfig({
     visualizer({ open: true, filename: 'dist/stats.html' }) // abre el reporte
     
   ],
-  base: '/'
+  base: './'
 })
