@@ -3,10 +3,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import { useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 import { getLead, upsertLead } from '../lib/api'
+import { sendIntakeEmails } from '../lib/emailjs'
 import { CAMPS } from '../content/camps'
 import { Section } from '../ui/Section'
 
@@ -35,7 +36,6 @@ type IntakeFormType = 'general' | 'campamentos'
 
 export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) {
   const isCampamentos = formType === 'campamentos'
-  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const qc = useQueryClient()
   const leadQuery = useQuery({ queryKey: ['lead'], queryFn: getLead })
@@ -76,12 +76,28 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
 
   const mutation = useMutation({
     mutationFn: async (values: FormValues) => {
+      // Send emails first
+      await sendIntakeEmails({
+        guardianName: values.guardianName,
+        email: values.email,
+        phone: values.phone,
+        kidName: values.kidName,
+        kidAge: values.kidAge,
+        camp: values.camp,
+      })
+      // Then save to database
       await upsertLead({ ...values, stage: 'submitted' })
     },
     onSuccess: async () => {
       await qc.invalidateQueries({ queryKey: ['lead'] })
       toast.success('¡Listo! Hemos recibido tu solicitud.')
-      navigate('/contacto')
+      /*navigate('/contacto')*/
+      globalThis.location.href = '/contacto';
+      
+    },
+    onError: (error) => {
+      console.error('Error in form submission:', error)
+      toast.error('Hubo un error al enviar tu solicitud. Por favor, intenta de nuevo.')
     },
   })
 
