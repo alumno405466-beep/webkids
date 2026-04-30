@@ -92,7 +92,7 @@ export function Intake({ formType = 'general' }: { formType?: IntakeFormType }) 
       await qc.invalidateQueries({ queryKey: ['lead'] })
       toast.success('¡Listo! Hemos recibido tu solicitud.')
       /*navigate('/contacto')*/
-      window.location.href = '/contacto';
+      globalThis.location.href = '/contacto';
       
     },
     onError: (error) => {
