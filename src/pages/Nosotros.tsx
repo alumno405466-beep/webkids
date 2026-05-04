@@ -27,6 +27,7 @@ const staff = [
     image: 'https://kidstalent.es/content/uploads/2021/04/WhatsApp-Image-2021-04-22-at-12.36.14-768x1024.jpeg',
     info: 'Virginia es nuestra especialista en matemáticas, con una sólida formación en educación matemática y una gran pasión por enseñar esta materia. Su enfoque práctico y su habilidad para hacer que las matemáticas sean comprensibles y divertidas hacen que nuestros alumnos desarrollen confianza y habilidades en esta área.',
   },
+
 ]
 
 export function Nosotros() {
@@ -79,15 +80,15 @@ export function Nosotros() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
             >
-              <div className="relative h-64 overflow-hidden bg-slate-200">
+              <div className="relative h-64 overflow-hidden bg-brand">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:opacity-0 transition-opacity duration-300"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 opacity-100 group-hover:opacity-40 transition-opacity duration-300"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center p-6 text-center bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm text-slate-800">{member.info}</p>
+                <div className="absolute inset-0 flex items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100  font-bold transition-opacity duration-300">
+                  <p className="text-sm text-opacity-100 text-white">{member.info}</p>
                 </div>
               </div>
 
