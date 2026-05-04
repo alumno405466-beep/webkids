@@ -7,21 +7,25 @@ const staff = [
     name: 'Zara Imni',
     role: 'Coordinación',
     image: 'https://kidstalent.es/content/uploads/2023/09/WhatsApp-Image-2023-09-14-at-15.35.45-761x1024.jpeg',
+    info: 'Zara es la coordinadora de nuestro centro, con una amplia experiencia en educación infantil y un enfoque centrado en el desarrollo integral de los niños. Su pasión por la enseñanza y su dedicación a cada niño hacen que sea una pieza clave en nuestro equipo.',
   },
   {
     name: 'Beatriz Sánchez',
     role: 'Apoyo Escolar',
     image: 'https://kidstalent.es/content/uploads/2017/08/IMG_1042-1365x1024.jpg',
+    info: 'Beatriz es nuestra especialista en apoyo escolar, con una sólida formación en pedagogía y una gran habilidad para conectar con los niños. Su enfoque personalizado y su paciencia hacen que cada sesión de apoyo sea efectiva y motivadora para los niños.',
   },
   {
     name: 'Begoña García-ochoa',
     role: 'Robótica LEGO',
     image: 'https://kidstalent.es/content/uploads/2017/08/foto-begon~a-1.jpg',
+    info: 'Begoña es nuestra experta en robótica LEGO, con una amplia experiencia en la enseñanza de tecnología a niños. Su creatividad y su habilidad para hacer que el aprendizaje sea divertido y accesible hacen que las clases de robótica sean un éxito entre nuestros alumnos.',
   },
   {
     name: 'Virginia Ramos',
     role: 'Matemáticas',
     image: 'https://kidstalent.es/content/uploads/2021/04/WhatsApp-Image-2021-04-22-at-12.36.14-768x1024.jpeg',
+    info: 'Virginia es nuestra especialista en matemáticas, con una sólida formación en educación matemática y una gran pasión por enseñar esta materia. Su enfoque práctico y su habilidad para hacer que las matemáticas sean comprensibles y divertidas hacen que nuestros alumnos desarrollen confianza y habilidades en esta área.',
   },
 ]
 
@@ -75,13 +79,18 @@ export function Nosotros() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
             >
-              <div className="h-64 overflow-hidden bg-slate-200">
+              <div className="relative h-64 overflow-hidden bg-slate-200">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:opacity-0 transition-opacity duration-300"
                 />
+
+                <div className="absolute inset-0 flex items-center justify-center p-6 text-center bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-sm text-slate-800">{member.info}</p>
+                </div>
               </div>
+
               <div className="bg-white p-4">
                 <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
                 <p className="text-sm text-brand font-semibold">{member.role}</p>
@@ -92,7 +101,7 @@ export function Nosotros() {
       </Section>
 
       {/* CTA */}
-      <Section bgColor="gradient" withPadding={false}>
+      <Section  withPadding={false}>
         <div className="rounded-2xl bg-white p-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}

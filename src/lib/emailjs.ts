@@ -48,7 +48,7 @@ export async function sendIntakeEmails(data: EmailParams) {
       camp: data.camp || 'No especificado',
       age: String(data.kidAge),
       // No hay campo "message" en el formulario; lo dejamos vacío para la plantilla
-      message: '',
+      message: '', //Preparado en caso de que se ponga la posibilidad de poner un mensaje por parte del usuario.
       submission_date: new Date().toLocaleDateString('es-ES'),
     })
 
