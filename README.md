@@ -75,6 +75,25 @@ Verificación rápida del hover:
 2. Abrir la página `Nosotros` en el navegador.
 3. Pasar el cursor por encima de una tarjeta; la imagen debe desvanecerse y mostrarse la información del profesor.
 
+## Forma de uso
+
+Instrucciones rápidas para usar la aplicación y el pequeño servidor opcional:
+
+- Desarrollador (modo local):
+  1. `cd webkids` y `npm install` (o `pnpm install`).
+  2. `npm run dev` y abrir `http://localhost:5173`.
+  3. Navegar por las secciones del menú: `Home`, `Programas`, `Nuestro Equipo`, `Contacto`, etc.
+
+- Enviar formularios:
+  - El formulario de contacto y formularios de inscripción envían datos desde el frontend.
+  - Para validar si un email es desechable, puedes arrancar el servidor opcional en `webkids/server` y probar `POST /api/check-email` (ver `webkids/server/README.md`).
+
+- Producción (build):
+  1. `npm run build` en `webkids`.
+  2. Servir la carpeta `dist` desde tu servidor estático o integrarla en tu backend.
+
+Si necesitas que el frontend llame al servidor de verificación antes de enviar el formulario, puedo añadir esa integración.
+
 ## Notas de desarrollo
 
 - Animaciones de entrada y aparición usan `framer-motion`.
