@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Kids Talent — Proyecto web (webkids)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Guía breve de instalación y uso para el proyecto localizado en `webkids`.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js v18+ (recomendado)
+- npm o pnpm
 
-## React Compiler
+## Instalación
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Abre una terminal en la carpeta del repositorio y sitúate en el proyecto:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd webkids
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instala dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# o
+pnpm install
 ```
+
+## Ejecutar en desarrollo
+
+Arranca el servidor de desarrollo (Vite):
+
+```bash
+npm run dev
+# o
+pnpm dev
+```
+
+Abre la URL que muestre Vite (por defecto `http://localhost:5173`).
+
+## Build y previsualización
+
+Generar build de producción:
+
+```bash
+npm run build
+# o
+pnpm build
+```
+
+Previsualizar el resultado del build:
+
+```bash
+npm run preview
+# o
+pnpm preview
+```
+
+## Estructura principal del proyecto
+
+- `src/` — código fuente (React + TypeScript)
+  - `pages/` — páginas principales (p. ej. `Nosotros.tsx`, `Contact.tsx`)
+  - `ui/` — componentes reutilizables (Section, GoogleMap...)
+  - `content/` — datos estáticos (staff, contact)
+- `public/` — activos estáticos
+- `package.json` — scripts y dependencias
+
+## Guía de usuario
+
+- Abrir la aplicación en el navegador.
+- Ir a la sección "Nuestro Equipo" (la página que renderiza `Nosotros.tsx`).
+- Cada profesor aparece en una tarjeta con imagen, nombre y rol.
+- Comportamiento hover: al poner el cursor sobre la tarjeta, la imagen se oculta y en su lugar aparece la descripción larga (`info`). El efecto usa utilidades de Tailwind (`group-hover`, `opacity`) y transiciones CSS.
+
+Verificación rápida del hover:
+
+1. `npm run dev` o `pnpm dev`.
+2. Abrir la página `Nosotros` en el navegador.
+3. Pasar el cursor por encima de una tarjeta; la imagen debe desvanecerse y mostrarse la información del profesor.
+
+## Notas de desarrollo
+
+- Animaciones de entrada y aparición usan `framer-motion`.
+- Si no ves el overlay en hover, comprueba que la tarjeta incluye la clase `group` y que el overlay usa `group-hover:opacity-100`.
+
+## Contribuir
+
+- Crea una rama nueva: `git checkout -b feat/mi-cambio`.
+- Haz commits claros y push a tu rama.
+
+## Soporte
+
+Si necesitas ayuda, abre un issue o contacta al mantenedor del repositorio.
+
+---
+
+Archivo actualizado para proporcionar instrucciones en español y guía de uso.
